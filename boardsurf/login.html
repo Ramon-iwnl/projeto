@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <title>Login | BoardSurf Multimarcas</title>
+</head>
+<body class="auth-page">
+  <div class="background-container"></div>
+  <div class="accessibility-bar">
+    <button onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+    <button onclick="aumentarFonte()">A+</button>
+    <button onclick="diminuirFonte()">A-</button>
+  </div>
+  <header>
+  <nav class="nav-bar" aria-label="Menu principal">
+    <a href="index.html" class="logo-container"><div class="BoardSurf"><img src="assets/img/logo.png.png" alt="Logo BoardSurf" class="logo"><h1>BoardSurf Multimarcas</h1></div></a>
+    <div class="nav-list"><ul>
+      <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+      <li class="nav-item"><a href="produtos.html" class="nav-link">Produtos</a></li>
+      <li class="nav-item"><a href="modelo-bd.html" class="nav-link">Modelo do BD</a></li>
+      <li class="nav-item master-only"><a href="admin.html" class="nav-link">Usuários</a></li>
+      <li class="nav-item master-only"><a href="logs.html" class="nav-link">Logs</a></li>
+      <li class="nav-item master-only"><a href="painel-produtos.html" class="nav-link">Gerenciar produtos</a></li>
+    </ul></div>
+    <div class="buttons-area">
+      <div id="usuario-logado-nome" class="logged-user" hidden style="display:none"><i class="fa-solid fa-user" aria-hidden="true"></i><span></span></div>
+      <button type="button" class="carrinho-link" onclick="abrirCarrinho()" aria-label="Abrir carrinho"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span id="contador-carrinho">0</span></button>
+      <a href="alterar-senha.html" class="nav-link common-only">Alterar senha</a>
+      <div id="visitante-botoes" class="login-button"><button type="button" onclick="location.href='login.html'">Login</button><button type="button" onclick="location.href='cadastro.html'">Cadastrar</button></div>
+      <button type="button" id="btn-perfil" style="display:none">Meu Perfil</button>
+      <button type="button" id="btn-sair" onclick="deslogarUsuario()" style="display:none">Sair</button>
+    </div>
+  </nav>
+</header>
+
+  <main class="auth-main">
+    <section id="login" class="auth-section">
+      <div class="login-card">
+        <div class="login-icon"><i class="fa-solid fa-user-lock"></i></div>
+        <span class="eyebrow">Área segura</span>
+        <h2>Acesse sua conta</h2>
+        <p class="auth-subtitle">Entre com seu login e senha para continuar.</p>
+        <form id="formLogin" novalidate>
+          <label for="campoUserLogin">Login</label>
+          <div class="input-icon"><i class="fa-solid fa-user"></i><input type="text" id="campoUserLogin" placeholder="Digite seu login" autocomplete="username" /></div>
+          <label for="senhaLogin">Senha</label>
+          <div class="input-icon"><i class="fa-solid fa-lock"></i><input type="password" id="senhaLogin" placeholder="Digite sua senha" autocomplete="current-password" /><button type="button" class="toggle-password" onclick="togglePassword('senhaLogin', this)" aria-label="Mostrar senha"><i class="fa-solid fa-eye"></i></button></div>
+          <button class="btn-primary btn-login" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Entrar</button>
+          <button type="reset" class="btn-secondary">Limpar</button><a class="btn-secondary" href="cadastro.html"><i class="fa-solid fa-user-plus"></i> Criar conta</a>
+        </form>
+        <div class="security-note"><i class="fa-solid fa-shield-halved"></i><span>Após a senha, o sistema solicitará o segundo fator de autenticação.</span></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="mensagem" role="alert"></div>
+  <footer><p>&copy; 2026 BoardSurf Multimarcas. Todos os direitos reservados.</p><p>Contato: contato@boardsurf.com.br | sac@boardsurf.com.br</p></footer>
+
+  <div id="modal-2fa" class="auth-modal" style="display:none;">
+    <div class="auth-modal-card">
+      <button class="modal-close" type="button" onclick="fechar2FA()">&times;</button>
+      <div class="login-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <span class="eyebrow">Segundo fator</span>
+      <h2>Confirme sua identidade</h2>
+      <p class="auth-subtitle">Responda de acordo com os dados do seu cadastro.</p>
+      <form id="form2fa" novalidate><label id="pergunta2fa" for="resposta2fa">Pergunta de segurança</label><input id="resposta2fa" autocomplete="off" required><button class="btn-primary" type="submit">Confirmar</button></form>
+    </div>
+  </div>
+
+  <script src="assets/js/jsprjeto.js" defer></script>
+<div id="perfil-modal" class="perfil-overlay" style="display:none" role="dialog" aria-modal="true" aria-labelledby="perfil-titulo">
+  <div class="card perfil-card"><div class="perfil-header"><h2 id="perfil-titulo">Meu Perfil</h2><button type="button" class="btn-fechar-perfil" onclick="fecharModalPerfil()" aria-label="Fechar perfil">×</button></div>
+    <form id="form-perfil-edit" class="perfil-dados">
+      <label for="perf-nome">Nome</label><input id="perf-nome" disabled required maxlength="80">
+      <label for="perf-email">E-mail</label><input id="perf-email" type="email" disabled required maxlength="120">
+      <label for="perf-celular">Celular</label><input id="perf-celular" type="tel" disabled required>
+      <label for="perf-cidade">Cidade</label><input id="perf-cidade" disabled required maxlength="100">
+      <label for="perf-estado">Estado</label><input id="perf-estado" disabled required maxlength="2">
+      <div class="perfil-botoes-acoes"><button type="button" id="btn-editar-perfil" onclick="ativarEdicaoPerfil()">Editar Dados</button><button type="submit" id="btn-salvar-perfil" style="display:none">Salvar Alterações</button></div>
+    </form>
+  </div>
+</div>
+<dialog id="erro-modal" class="app-dialog" aria-labelledby="erro-titulo"><h2 id="erro-titulo">Não foi possível concluir</h2><p id="erro-texto" role="alert"></p><form method="dialog"><button class="btn-primary" value="fechar">Entendi</button></form><a href="erro.html">Abrir tela de ajuda</a></dialog>
+<dialog id="confirmar-modal" class="app-dialog" aria-labelledby="confirmar-titulo"><h2 id="confirmar-titulo">Confirmar exclusão</h2><p id="confirmar-texto"></p><form method="dialog"><button class="btn-secondary" value="cancelar">Cancelar</button><button class="btn-primary" value="confirmar">Excluir</button></form></dialog>
+</body>
+</html>

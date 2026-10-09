@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Cadastro</title>
+  </head>
+
+  <body>
+    <div class="accessibility-bar">
+      <button onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+      <button onclick="aumentarFonte()">A+</button>
+      <button onclick="diminuirFonte()">A-</button>
+    </div>
+
+    <header>
+  <nav class="nav-bar" aria-label="Menu principal">
+    <a href="index.html" class="logo-container"><div class="BoardSurf"><img src="assets/img/logo.png.png" alt="Logo BoardSurf" class="logo"><h1>BoardSurf Multimarcas</h1></div></a>
+    <div class="nav-list"><ul>
+      <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+      <li class="nav-item"><a href="produtos.html" class="nav-link">Produtos</a></li>
+      <li class="nav-item"><a href="modelo-bd.html" class="nav-link">Modelo do BD</a></li>
+      <li class="nav-item master-only"><a href="admin.html" class="nav-link">Usuários</a></li>
+      <li class="nav-item master-only"><a href="logs.html" class="nav-link">Logs</a></li>
+      <li class="nav-item master-only"><a href="painel-produtos.html" class="nav-link">Gerenciar produtos</a></li>
+    </ul></div>
+    <div class="buttons-area">
+      <div id="usuario-logado-nome" class="logged-user" hidden style="display:none"><i class="fa-solid fa-user" aria-hidden="true"></i><span></span></div>
+      <button type="button" class="carrinho-link" onclick="abrirCarrinho()" aria-label="Abrir carrinho"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span id="contador-carrinho">0</span></button>
+      <a href="alterar-senha.html" class="nav-link common-only">Alterar senha</a>
+      <div id="visitante-botoes" class="login-button"><button type="button" onclick="location.href='login.html'">Login</button><button type="button" onclick="location.href='cadastro.html'">Cadastrar</button></div>
+      <button type="button" id="btn-perfil" style="display:none">Meu Perfil</button>
+      <button type="button" id="btn-sair" onclick="deslogarUsuario()" style="display:none">Sair</button>
+    </div>
+  </nav>
+</header>
+
+    <main class="auth-main"><section id="cadastro" class="auth-section">
+      <div class="login-card cadastro-card"><div class="login-icon"><i class="fa-solid fa-user-plus"></i></div><span class="eyebrow">Novo usuário</span><h2>Cadastro de Usuário</h2><p class="auth-subtitle">O cadastro realizado pelo site cria somente Usuário Comum.</p>
+
+      <form id="formCadastro" novalidate>
+        <label for="nome">Nome completo</label><input type="text" id="nome" maxlength="80" placeholder="Nome Completo" />
+
+        <label for="dataNascimento">Data de nascimento</label><input type="date" id="dataNascimento" />
+
+        <label for="sexo">Sexo</label><select id="sexo">
+          <option value="">Sexo</option>
+          <option>Masculino</option>
+          <option>Feminino</option>
+          <option>Outro</option>
+        </select>
+
+        <label for="materno">Nome materno</label><input type="text" id="materno" maxlength="80" placeholder="Nome Materno" />
+
+        <label for="cpf">CPF</label><input type="text" id="cpf" placeholder="CPF" />
+
+        <label for="email">E-mail</label><input type="email" id="email" maxlength="120" placeholder="E-mail" />
+
+        <label for="celular">Telefone celular</label><input type="tel" id="celular" placeholder="Celular (+55)XX-XXXXXXXXX" />
+
+        <label for="telefoneFixo">Telefone fixo</label><input
+          type="tel"
+          id="telefoneFixo"
+          placeholder="Telefone fixo (+55)XX-XXXXXXXX"
+        />
+
+        <label for="cep">CEP</label><input type="text" id="cep" placeholder="CEP" />
+
+        <label for="logradouro">Logradouro</label><input type="text" id="logradouro" maxlength="150" placeholder="Logradouro" />
+
+        <label for="numero">Número</label><input type="text" id="numero" maxlength="20" placeholder="Número" />
+
+        <label for="bairro">Bairro</label><input type="text" id="bairro" maxlength="100" placeholder="Bairro" />
+
+        <label for="cidade">Cidade</label><input type="text" id="cidade" maxlength="100" placeholder="Cidade" />
+
+        <label for="estado">Estado (UF)</label><input type="text" id="estado" maxlength="2" placeholder="Estado" />
+
+        <label for="loginUsuario">Login (6 letras)</label><input type="text" id="loginUsuario" maxlength="6" placeholder="Login (6 letras)" />
+
+        <label for="senha">Senha (8 letras)</label><div class="cadastro-senha"><input type="password" id="senha" maxlength="8" placeholder="Senha (8 letras)" autocomplete="new-password" />
+          <button type="button" class="toggle-password" onclick="togglePassword('senha', this)" aria-label="Mostrar ou ocultar senha">
+            <i class="fa-solid fa-eye" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <label for="confirmarSenha">Confirmar senha</label><div class="cadastro-senha"><input type="password" id="confirmarSenha" maxlength="8" placeholder="Confirmar Senha" autocomplete="new-password" />
+          <button type="button" class="toggle-password" onclick="togglePassword('confirmarSenha', this)" aria-label="Mostrar ou ocultar confirmação de senha">
+            <i class="fa-solid fa-eye" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <button type="submit">Enviar</button>
+
+        <button type="reset">Limpar</button>
+      </form></div>
+    </section></main>
+
+    <footer>
+      <p>&copy; 2026 BoardSurf Multimarcas. Todos os direitos reservados.</p>
+      <p>Contato: contato@boardsurf.com.br</p>
+      <p>sac@boardsurf.com.br</p>
+    </footer>
+
+<script src="assets/js/jsprjeto.js?v=20261008-4" defer></script>
+<div id="mensagem" role="status"></div><div id="perfil-modal" class="perfil-overlay" style="display:none" role="dialog" aria-modal="true" aria-labelledby="perfil-titulo">
+  <div class="card perfil-card"><div class="perfil-header"><h2 id="perfil-titulo">Meu Perfil</h2><button type="button" class="btn-fechar-perfil" onclick="fecharModalPerfil()" aria-label="Fechar perfil">×</button></div>
+    <form id="form-perfil-edit" class="perfil-dados">
+      <label for="perf-nome">Nome</label><input id="perf-nome" disabled required maxlength="80">
+      <label for="perf-email">E-mail</label><input id="perf-email" type="email" disabled required maxlength="120">
+      <label for="perf-celular">Celular</label><input id="perf-celular" type="tel" disabled required>
+      <label for="perf-cidade">Cidade</label><input id="perf-cidade" disabled required maxlength="100">
+      <label for="perf-estado">Estado</label><input id="perf-estado" disabled required maxlength="2">
+      <div class="perfil-botoes-acoes"><button type="button" id="btn-editar-perfil" onclick="ativarEdicaoPerfil()">Editar Dados</button><button type="submit" id="btn-salvar-perfil" style="display:none">Salvar Alterações</button></div>
+    </form>
+  </div>
+</div>
+<dialog id="erro-modal" class="app-dialog" aria-labelledby="erro-titulo"><h2 id="erro-titulo">Não foi possível concluir</h2><p id="erro-texto" role="alert"></p><form method="dialog"><button class="btn-primary" value="fechar">Entendi</button></form><a href="erro.html">Abrir tela de ajuda</a></dialog>
+<dialog id="confirmar-modal" class="app-dialog" aria-labelledby="confirmar-titulo"><h2 id="confirmar-titulo">Confirmar exclusão</h2><p id="confirmar-texto"></p><form method="dialog"><button class="btn-secondary" value="cancelar">Cancelar</button><button class="btn-primary" value="confirmar">Excluir</button></form></dialog>
+</body> 
+</html>

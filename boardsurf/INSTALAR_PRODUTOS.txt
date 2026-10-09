@@ -1,0 +1,5 @@
+1. Faça backup do banco e da pasta boardsurf.
+2. Substitua os arquivos em C:\\xampp\\htdocs\\boardsurf.
+3. No phpMyAdmin, selecione o banco boardsurf e importe produtos_migracao.sql (não apaga usuários).
+4. Acesse http://localhost/boardsurf/produtos.html e as categorias.
+5. Para novos bancos, banco.sql já inclui a tabela e os produtos.

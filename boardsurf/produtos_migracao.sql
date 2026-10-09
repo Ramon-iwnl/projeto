@@ -1,0 +1,17 @@
+USE boardsurf;
+
+CREATE TABLE IF NOT EXISTS produtos (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(150) NOT NULL, categoria VARCHAR(30) NOT NULL, preco DECIMAL(10,2) NOT NULL, imagem VARCHAR(255) NOT NULL UNIQUE, cor VARCHAR(40) DEFAULT '', avaliacao VARCHAR(50) DEFAULT '', estoque INT UNSIGNED NOT NULL DEFAULT 10, ativo TINYINT(1) NOT NULL DEFAULT 1);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('REGATA LOGO ELIPSE RED','regatas',159.99,'assets/img/regata1.webp','red','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('REGATA LOGO ELIPSE BLACK','regatas',159.99,'assets/img/regata2.webp','black','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('REGATA LOGO ELIPSE WHITE','regatas',159.99,'assets/img/regata3.webp','white','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('REGATA LOGO ELIPSE BLUE','regatas',159.99,'assets/img/regata4.webp','blue','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('CAMISETA LOGO ELIPSE WHITE','camisetas',179.99,'assets/img/camiseta1.webp','white','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('CAMISETA LOGO ELIPSE BLACK','camisetas',179.99,'assets/img/camiseta2.webp','black','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('SHORT RUNNER GRAY','bermudas',349.99,'assets/img/bermuda1.webp','gray','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('SHORT RUNNER GREEN','bermudas',349.99,'assets/img/bermuda2.webp','greenyellow','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('SHORT RUNNER BLACK','bermudas',349.99,'assets/img/bermuda3.webp','black','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('SHORT RUNNER BLUE','bermudas',349.99,'assets/img/bermuda4.webp','blue','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('NIKE COURT VISION LOW','tenis',398.99,'assets/img/tenis 1.avif','black','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('NIKE AIR FORCE 1 07','tenis',759.99,'assets/img/tenis 2.avif','white','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('NIKE AIR MAX 90','tenis',1099.99,'assets/img/tenis 3.avif','white','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);
+INSERT INTO produtos (nome,categoria,preco,imagem,cor,avaliacao) VALUES ('NIKE AIR MAX 90','tenis',1099.99,'assets/img/tenis 4.avif','white','★★★★★') ON DUPLICATE KEY UPDATE nome=VALUES(nome),categoria=VALUES(categoria);

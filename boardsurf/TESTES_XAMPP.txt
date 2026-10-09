@@ -1,0 +1,35 @@
+ROTEIRO PARA A DEMONSTRAÇÃO DO PRÉ-PROJETO
+
+1. Diagnóstico: confira PHP, banco e três tabelas em diagnostico.php.
+2. Cadastro vazio: verifique as mensagens em cada campo.
+3. Cadastro inválido: tente nome com números, login com 5/7 letras, senha com números,
+   CPF com dígito verificador errado e confirmação diferente. O envio deve ser impedido.
+4. Cadastro válido com dados fictícios: nome Rafael Almeida Teste, login rafael,
+   senha TesteAbc, nascimento 15/06/1998, nome materno Mariana Almeida Teste.
+   Use e-mail de teste, telefones de teste, CEP/endereço válidos e um CPF de teste válido.
+   Nunca use dados de terceiros. O envio deve gravar COMUM e redirecionar para o login.
+5. Teste visualizar/ocultar as duas senhas e Limpar sem enviar o formulário.
+6. Login: teste senha errada, Limpar e depois a senha correta.
+7. 2FA: responda à pergunta sorteada com os dados do cadastro. Confirme que o login
+   só aparece como autenticado após a resposta certa.
+8. Refazendo o login, erre três respostas. Deve aparecer exatamente:
+   "3 tentativas sem sucesso! Favor realizar Login novamente."
+9. Navegue pelas páginas: login do usuário, menu e Sair devem permanecer disponíveis.
+10. COMUM: teste alterar a própria senha com oito letras e fazer logout/login.
+11. MASTER: consulte usuários por parte do nome, consulte logs por nome/CPF ou todos,
+    e exclua somente um cadastro de teste, confirmando a operação.
+12. Modelo do BD: confira a imagem do DER e baixe a imagem para a entrega.
+13. Produtos: o catálogo e o filtro por categoria devem continuar funcionando.
+14. Carrinho: adicione/remova, verifique total/contador, feche por X/fora/Esc e recarregue.
+15. Layout: larguras 320, 390, 768, 1024 e 1440 pixels; logado/deslogado, fonte A+,
+    modo escuro, formulários e carrinho com vários itens. Confira também num celular real.
+
+VALIDAÇÃO REALIZADA NESTE AMBIENTE
+PHP 8.4.26 + MariaDB 11.8.6 (compatível com MySQL), em banco isolado.
+Testes de API: cadastro, validações, duplicidade, autenticação, três perguntas de 2FA,
+três falhas, troca de senha, permissões COMUM/MASTER, consulta, logs, exclusão e catálogo.
+Chromium: 13 páginas em cinco larguras, sem overflow horizontal de página ou sobreposição
+entre os blocos do cabeçalho; login/logout e login visível em telas autenticadas.
+Navegador: cadastro com gravação real, fallback de CEP, 2FA modal/independente,
+visualizar senhas, Limpar, erros, carrinho, fonte ampliada e contraste.
+Nenhum banco de dados do seu computador foi acessado ou alterado.

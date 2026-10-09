@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="900" viewBox="0 0 1080 900" role="img" aria-labelledby="titulo descricao">
+<title id="titulo">DER BoardSurf</title><desc id="descricao">Modelo físico completo com chaves e cardinalidades. Usuarios possui zero a muitos logs; cada log referencia zero ou um usuario. Produtos não possui relacionamentos neste projeto.</desc>
+<rect width="1080" height="900" fill="#f4f7fb"/>
+<text x="35" y="40" font-family="Arial" font-size="24" font-weight="bold" fill="#172438">BoardSurf — Diagrama Entidade-Relacionamento</text>
+<rect x="35" y="70" width="390" height="634" rx="12" fill="white" stroke="#0187a7" stroke-width="2"/>
+<path d="M47 70 H413 Q425 70 425 82 V112 H35 V82 Q35 70 47 70" fill="#0187a7"/>
+<text x="53" y="99" font-family="Arial" font-size="22" font-weight="bold" fill="white">usuarios</text>
+<text x="51" y="139" font-family="monospace" font-size="17" fill="#172438">PK id : INT UNSIGNED</text>
+<text x="51" y="168" font-family="monospace" font-size="17" fill="#172438">nome : VARCHAR(80)</text>
+<text x="51" y="197" font-family="monospace" font-size="17" fill="#172438">data_nascimento : DATE</text>
+<text x="51" y="226" font-family="monospace" font-size="17" fill="#172438">sexo : VARCHAR(30)</text>
+<text x="51" y="255" font-family="monospace" font-size="17" fill="#172438">nome_materno : VARCHAR(80)</text>
+<text x="51" y="284" font-family="monospace" font-size="17" fill="#172438">UK cpf : CHAR(11)</text>
+<text x="51" y="313" font-family="monospace" font-size="17" fill="#172438">email : VARCHAR(120)</text>
+<text x="51" y="342" font-family="monospace" font-size="17" fill="#172438">celular : CHAR(11)</text>
+<text x="51" y="371" font-family="monospace" font-size="17" fill="#172438">telefone_fixo : CHAR(10)</text>
+<text x="51" y="400" font-family="monospace" font-size="17" fill="#172438">cep : CHAR(8)</text>
+<text x="51" y="429" font-family="monospace" font-size="17" fill="#172438">logradouro : VARCHAR(150)</text>
+<text x="51" y="458" font-family="monospace" font-size="17" fill="#172438">numero : VARCHAR(20)</text>
+<text x="51" y="487" font-family="monospace" font-size="17" fill="#172438">bairro : VARCHAR(100)</text>
+<text x="51" y="516" font-family="monospace" font-size="17" fill="#172438">cidade : VARCHAR(100)</text>
+<text x="51" y="545" font-family="monospace" font-size="17" fill="#172438">estado : CHAR(2)</text>
+<text x="51" y="574" font-family="monospace" font-size="17" fill="#172438">UK login : VARCHAR(20)</text>
+<text x="51" y="603" font-family="monospace" font-size="17" fill="#172438">senha_hash : VARCHAR(255)</text>
+<text x="51" y="632" font-family="monospace" font-size="17" fill="#172438">perfil : ENUM(MASTER, COMUM)</text>
+<text x="51" y="661" font-family="monospace" font-size="17" fill="#172438">ativo : TINYINT(1)</text>
+<text x="51" y="690" font-family="monospace" font-size="17" fill="#172438">criado_em : DATETIME</text>
+<rect x="610" y="70" width="420" height="344" rx="12" fill="white" stroke="#0187a7" stroke-width="2"/>
+<path d="M622 70 H1018 Q1030 70 1030 82 V112 H610 V82 Q610 70 622 70" fill="#0187a7"/>
+<text x="628" y="99" font-family="Arial" font-size="22" font-weight="bold" fill="white">logs_autenticacao</text>
+<text x="626" y="139" font-family="monospace" font-size="17" fill="#172438">PK id : BIGINT UNSIGNED</text>
+<text x="626" y="168" font-family="monospace" font-size="17" fill="#172438">FK usuario_id : INT UNSIGNED NULL</text>
+<text x="626" y="197" font-family="monospace" font-size="17" fill="#172438">login : VARCHAR(20) NULL</text>
+<text x="626" y="226" font-family="monospace" font-size="17" fill="#172438">nome : VARCHAR(80) NULL</text>
+<text x="626" y="255" font-family="monospace" font-size="17" fill="#172438">cpf : CHAR(11) NULL</text>
+<text x="626" y="284" font-family="monospace" font-size="17" fill="#172438">evento : VARCHAR(50)</text>
+<text x="626" y="313" font-family="monospace" font-size="17" fill="#172438">resultado : VARCHAR(40)</text>
+<text x="626" y="342" font-family="monospace" font-size="17" fill="#172438">fator_autenticacao : VARCHAR(30)</text>
+<text x="626" y="371" font-family="monospace" font-size="17" fill="#172438">ip : VARCHAR(45) NULL</text>
+<text x="626" y="400" font-family="monospace" font-size="17" fill="#172438">data_hora : DATETIME</text>
+<rect x="610" y="470" width="420" height="315" rx="12" fill="white" stroke="#0187a7" stroke-width="2"/>
+<path d="M622 470 H1018 Q1030 470 1030 482 V512 H610 V482 Q610 470 622 470" fill="#0187a7"/>
+<text x="628" y="499" font-family="Arial" font-size="22" font-weight="bold" fill="white">produtos</text>
+<text x="626" y="539" font-family="monospace" font-size="17" fill="#172438">PK id : INT UNSIGNED</text>
+<text x="626" y="568" font-family="monospace" font-size="17" fill="#172438">nome : VARCHAR(150)</text>
+<text x="626" y="597" font-family="monospace" font-size="17" fill="#172438">categoria : VARCHAR(30)</text>
+<text x="626" y="626" font-family="monospace" font-size="17" fill="#172438">preco : DECIMAL(10,2)</text>
+<text x="626" y="655" font-family="monospace" font-size="17" fill="#172438">UK imagem : VARCHAR(255)</text>
+<text x="626" y="684" font-family="monospace" font-size="17" fill="#172438">cor : VARCHAR(40)</text>
+<text x="626" y="713" font-family="monospace" font-size="17" fill="#172438">avaliacao : VARCHAR(50)</text>
+<text x="626" y="742" font-family="monospace" font-size="17" fill="#172438">estoque : INT UNSIGNED</text>
+<text x="626" y="771" font-family="monospace" font-size="17" fill="#172438">ativo : TINYINT(1)</text>
+<path d="M425 205 H610" stroke="#172438" stroke-width="2" fill="none"/>
+<text x="435" y="190" font-family="Arial" font-size="18">0..1</text><text x="555" y="190" font-family="Arial" font-size="18">0..N</text>
+<text x="443" y="235" font-family="Arial" font-size="13">registra acessos</text>
+<text x="35" y="780" font-family="Arial" font-size="17">PK: chave primária • FK: chave estrangeira • UK: chave única</text>
+<text x="35" y="810" font-family="Arial" font-size="16">FK logs_autenticacao.usuario_id → usuarios.id (ON DELETE SET NULL).</text>
+<text x="35" y="840" font-family="Arial" font-size="16">O catálogo de produtos é independente. Carrinho local, sem pedidos persistidos neste escopo.</text>
+</svg>

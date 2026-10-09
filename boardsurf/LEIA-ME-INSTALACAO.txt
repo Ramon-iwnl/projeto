@@ -1,0 +1,58 @@
+BOARDSURF — ENTREGA DO PRÉ-PROJETO
+
+REQUISITOS
+PHP 8.0 ou superior, MySQL/MariaDB, navegador moderno. O XAMPP com PHP 8 atende.
+
+INSTALAÇÃO NOVA
+1. Inicie Apache e MySQL no XAMPP.
+2. Copie a pasta boardsurf para C:\xampp\htdocs\boardsurf.
+3. No phpMyAdmin, importe banco.sql. Ele cria o banco, as tabelas, o Master e o catálogo inicial.
+4. Abra http://localhost/boardsurf/diagnostico.php e confira os resultados.
+5. Abra http://localhost/boardsurf/index.html. Não use file:/// nem Live Server para o PHP.
+
+MASTER EM BANCO NOVO
+Login: master
+Senha: MasterAb (oito letras)
+Responda à pergunta sorteada:
+- Nome materno: Administrador
+- Nascimento: 01/01/2000 (no campo de data, escolha essa data)
+- CEP: 20000-000
+A conta é criada via SQL. O cadastro do site sempre cria perfil COMUM.
+
+ATUALIZAR UMA INSTALAÇÃO JÁ EXISTENTE
+1. Faça uma cópia da pasta atual e exporte o banco no phpMyAdmin.
+2. Substitua os arquivos da aplicação pela versão deste pacote.
+3. Preserve suas configurações de conexão se você alterou usuário, senha, host ou nome do banco.
+   Os padrões continuam sendo 127.0.0.1, porta 3306, banco boardsurf, usuário root, senha vazia.
+   config.php também aceita BOARDSURF_DB_HOST, BOARDSURF_DB_PORT, BOARDSURF_DB_NAME,
+   BOARDSURF_DB_USER e BOARDSURF_DB_PASSWORD como variáveis opcionais.
+4. NÃO reimporte banco.sql para atualizar o código. Não é necessário alterar as tabelas.
+   A reimportação pode atualizar nomes/categorias do catálogo inicial.
+5. Contas antigas continuam entrando com as senhas já cadastradas. O 2FA agora usa
+   nome materno, data de nascimento ou CEP do próprio cadastro.
+6. Se desejar mudar APENAS a senha padrão antiga do Master (Master@1) para MasterAb,
+   importe adequacao_entrega.sql. Ele só altera a conta master que ainda possui o hash
+   padrão antigo; não apaga registros nem muda senhas personalizadas.
+7. Recarregue com Ctrl + F5.
+
+CADASTRO
+Nome: 15 a 80 caracteres, somente letras e espaços.
+Login: exatamente seis letras. Senha: exatamente oito letras, com confirmação igual.
+CPF: dígitos verificadores conferidos no JavaScript e no PHP.
+Telefone: (+55)DDD-número. O celular aceita 8 ou 9 dígitos locais; o fixo aceita 8.
+CEP: oito dígitos, consulta ViaCEP; em falha de rede, preencha o endereço manualmente.
+As senhas são armazenadas com password_hash e conferidas com password_verify.
+
+PRÉ-PROJETO
+Telas, validações, responsividade e Modelo ER/DER estão no foco desta entrega.
+O DER está em DER-BoardSurf.png, DER-BoardSurf.svg e na tela Modelo do BD.
+Há também tela de ajuda/erros e feedback por campo ou modal, sem alerts.
+O login, menu e logout aparecem no cabeçalho após autenticação.
+A tela de 2FA e o modal usam o mesmo desafio real mantido na sessão.
+Após três respostas erradas, o desafio é encerrado e o sistema volta ao login.
+
+ESCOPO
+O carrinho é local, armazenado no navegador. Não há pagamento ou pedido persistido.
+A exportação de usuários em PDF é desafio extra e não foi incluída neste pré-projeto.
+Esta entrega não garante nota ou aprovação: confira as orientações de identificação
+(número do grupo, alunos e nome do arquivo) e eventuais instruções adicionais do professor.

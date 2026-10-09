@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<title>BoardSurf Multimarcas - Produtos</title>
+</head>
+<body>
+<div class="accessibility-bar">
+<button onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+<button onclick="aumentarFonte()">A+</button>
+<button onclick="diminuirFonte()">A-</button>
+</div>
+<header>
+  <nav class="nav-bar" aria-label="Menu principal">
+    <a href="index.html" class="logo-container"><div class="BoardSurf"><img src="assets/img/logo.png.png" alt="Logo BoardSurf" class="logo"><h1>BoardSurf Multimarcas</h1></div></a>
+    <div class="nav-list"><ul>
+      <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+      <li class="nav-item"><a href="produtos.html" class="nav-link">Produtos</a></li>
+      <li class="nav-item"><a href="modelo-bd.html" class="nav-link">Modelo do BD</a></li>
+      <li class="nav-item master-only"><a href="admin.html" class="nav-link">Usuários</a></li>
+      <li class="nav-item master-only"><a href="logs.html" class="nav-link">Logs</a></li>
+      <li class="nav-item master-only"><a href="painel-produtos.html" class="nav-link">Gerenciar produtos</a></li>
+    </ul></div>
+    <div class="buttons-area">
+      <div id="usuario-logado-nome" class="logged-user" hidden style="display:none"><i class="fa-solid fa-user" aria-hidden="true"></i><span></span></div>
+      <button type="button" class="carrinho-link" onclick="abrirCarrinho()" aria-label="Abrir carrinho"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span id="contador-carrinho">0</span></button>
+      <a href="alterar-senha.html" class="nav-link common-only">Alterar senha</a>
+      <div id="visitante-botoes" class="login-button"><button type="button" onclick="location.href='login.html'">Login</button><button type="button" onclick="location.href='cadastro.html'">Cadastrar</button></div>
+      <button type="button" id="btn-perfil" style="display:none">Meu Perfil</button>
+      <button type="button" id="btn-sair" onclick="deslogarUsuario()" style="display:none">Sair</button>
+    </div>
+  </nav>
+</header>
+<main>
+<div class="grade-produtos" data-categoria="">Carregando produtos...</div></main>
+<footer>
+<p>© 2026 BoardSurf Multimarcas. Todos os direitos reservados.</p>
+<p>Contato: contato@boardsurf.com.br</p>
+<p>sac@boardsurf.com.br</p>
+</footer>
+
+<div class="carrinho-overlay" id="carrinho-overlay" onclick="fecharCarrinho()"></div>
+<div class="carrinho-lateral" id="carrinho-lateral">
+<div class="header-sacola">
+<h3>MINHA SACOLA</h3>
+<button onclick="fecharCarrinho()">X</button>
+</div>
+<ul id="lista-carrinho"></ul>
+<div class="rodape-sacola">
+<p>Subtotal: R$ <span id="total-carrinho">0.00</span></p>
+<button onclick="finalizarCompra()">FINALIZAR PEDIDO</button>
+<button onclick="fecharCarrinho()">CONTINUAR COMPRANDO</button>
+</div>
+</div>
+<script defer="" src="assets/js/jsprjeto.js"></script>
+<div id="mensagem" role="status"></div><div id="perfil-modal" class="perfil-overlay" style="display:none" role="dialog" aria-modal="true" aria-labelledby="perfil-titulo">
+  <div class="card perfil-card"><div class="perfil-header"><h2 id="perfil-titulo">Meu Perfil</h2><button type="button" class="btn-fechar-perfil" onclick="fecharModalPerfil()" aria-label="Fechar perfil">×</button></div>
+    <form id="form-perfil-edit" class="perfil-dados">
+      <label for="perf-nome">Nome</label><input id="perf-nome" disabled required maxlength="80">
+      <label for="perf-email">E-mail</label><input id="perf-email" type="email" disabled required maxlength="120">
+      <label for="perf-celular">Celular</label><input id="perf-celular" type="tel" disabled required>
+      <label for="perf-cidade">Cidade</label><input id="perf-cidade" disabled required maxlength="100">
+      <label for="perf-estado">Estado</label><input id="perf-estado" disabled required maxlength="2">
+      <div class="perfil-botoes-acoes"><button type="button" id="btn-editar-perfil" onclick="ativarEdicaoPerfil()">Editar Dados</button><button type="submit" id="btn-salvar-perfil" style="display:none">Salvar Alterações</button></div>
+    </form>
+  </div>
+</div>
+<dialog id="erro-modal" class="app-dialog" aria-labelledby="erro-titulo"><h2 id="erro-titulo">Não foi possível concluir</h2><p id="erro-texto" role="alert"></p><form method="dialog"><button class="btn-primary" value="fechar">Entendi</button></form><a href="erro.html">Abrir tela de ajuda</a></dialog>
+<dialog id="confirmar-modal" class="app-dialog" aria-labelledby="confirmar-titulo"><h2 id="confirmar-titulo">Confirmar exclusão</h2><p id="confirmar-texto"></p><form method="dialog"><button class="btn-secondary" value="cancelar">Cancelar</button><button class="btn-primary" value="confirmar">Excluir</button></form></dialog>
+</body>
+</html>
